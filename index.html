@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="time-section">
+                <h1 class="time" id="time">00:00:00</h1>
+                <p class="date" id="date">Monday, January 1, 2024</p>
+            </div>
+            <div class="greeting-section">
+                <h2 class="greeting" id="greeting">Good Morning, <span id="userName">Friend</span>!</h2>
+                <button class="edit-name-btn" id="editNameBtn" title="Edit Name">✏️</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌙</button>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Focus Timer Section -->
+            <section class="timer-section card">
+                <h3 class="section-title">Focus Timer</h3>
+                <div class="timer-display">
+                    <div class="timer-circle">
+                        <svg class="timer-svg" viewBox="0 0 200 200">
+                            <circle class="timer-bg" cx="100" cy="100" r="90"></circle>
+                            <circle class="timer-progress" id="timerProgress" cx="100" cy="100" r="90"></circle>
+                        </svg>
+                        <div class="timer-text" id="timerDisplay">25:00</div>
+                    </div>
+                </div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="startBtn">Start</button>
+                    <button class="btn btn-secondary" id="pauseBtn">Pause</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
+                </div>
+                <div class="timer-settings">
+                    <label for="pomodoroTime">Timer Duration (minutes):</label>
+                    <input type="number" id="pomodoroTime" min="1" max="60" value="25">
+                    <button class="btn btn-small" id="setTimeBtn">Set</button>
+                </div>
+            </section>
+
+            <!-- To-Do List Section -->
+            <section class="todo-section card">
+                <h3 class="section-title">To-Do List</h3>
+                <div class="todo-input-container">
+                    <input type="text" id="todoInput" class="todo-input" placeholder="Add a new task...">
+                    <button class="btn btn-add" id="addTodoBtn">Add</button>
+                </div>
+                <div class="todo-sort">
+                    <label for="sortTasks">Sort by:</label>
+                    <select id="sortTasks" class="sort-select">
+                        <option value="default">Default</option>
+                        <option value="alphabetical">A-Z</option>
+                        <option value="completed">Completed Last</option>
+                    </select>
+                </div>
+                <ul class="todo-list" id="todoList"></ul>
+                <div class="todo-stats">
+                    <span id="todoStats">0 tasks</span>
+                </div>
+            </section>
+
+            <!-- Quick Links Section -->
+            <section class="links-section card">
+                <h3 class="section-title">Quick Links</h3>
+                <div class="links-input-container">
+                    <input type="text" id="linkName" class="link-input" placeholder="Link name...">
+                    <input type="url" id="linkUrl" class="link-input" placeholder="https://example.com">
+                    <button class="btn btn-add" id="addLinkBtn">Add</button>
+                </div>
+                <div class="links-grid" id="linksGrid"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Edit Name Modal -->
+    <div class="modal" id="nameModal">
+        <div class="modal-content">
+            <h3>What's your name?</h3>
+            <input type="text" id="nameInput" class="modal-input" placeholder="Enter your name...">
+            <div class="modal-buttons">
+                <button class="btn btn-primary" id="saveNameBtn">Save</button>
+                <button class="btn btn-secondary" id="cancelNameBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
